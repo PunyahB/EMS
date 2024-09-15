@@ -359,17 +359,6 @@ body {
 
 .about { padding-block-start: 120px; }
 
-.about-banner {
-  border-radius: var(--radius-10);
-  margin-block-end: 30px;
-  position: relative;
-  top: -20px; 
-}
-
-.abs-img {
-  position: relative;
-  top: -20px; 
-}
 
 
 
