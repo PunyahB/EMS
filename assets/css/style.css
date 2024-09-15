@@ -310,9 +310,15 @@ body {
   background-position: center;
   padding-block: 100px var(--section-padding);
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Split the section into two equal columns */
-  align-items: center;
+  display: flex;
+  justify-content: space-between; /* Ensure space between text and image */
+  align-items: center; /* Vertically center content */
+}
+
+.hero-content {
+  text-align: left; /* Align text to the left */
+  color: var(--white);
+  max-width: 50%; /* Take up half the width */
 }
 
 .hero-banner {
@@ -322,18 +328,15 @@ body {
   border-radius: var(--radius-10);
   margin-inline: auto;
   margin-block-end: 30px;
-  grid-column: 2; /* Place the image on the right */
-  justify-self: end; /* Align the image to the right */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-banner img {
   border-radius: inherit;
-}
-
-.hero-content {
-  text-align: center;
-  color: var(--white);
-  grid-column: 1; /* Keep the content on the left */
+  width: 100%; /* Ensure the image fills the banner */
+  height: auto;
 }
 
 .hero-title {
@@ -357,9 +360,8 @@ body {
 .btn-group {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
+  justify-content: flex-start; /* Align buttons to the left */
 }
 
 
