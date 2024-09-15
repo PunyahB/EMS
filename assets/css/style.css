@@ -505,12 +505,6 @@ body {
   margin: 0 auto; /* Centers the widget horizontally */
 }
 
-/* Optional: Style for the widget container */
-section.skills {
-  background-color: #f0f0f0; /* Light background color for the section */
-  border-radius: 8px; /* Rounded corners for the section */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
 
 
 .skills .section-title { margin-block-end: 20px; }
