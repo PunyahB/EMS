@@ -366,6 +366,12 @@ body {
   top: -20px; 
 }
 
+.abs-img {
+  position: relative;
+  top: -20px; 
+}
+
+
 
 .about-banner > .img-cover { border-radius: inherit; }
 
