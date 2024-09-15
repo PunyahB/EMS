@@ -362,7 +362,10 @@ body {
 .about-banner {
   border-radius: var(--radius-10);
   margin-block-end: 30px;
+  position: relative;
+  top: -20px; 
 }
+
 
 .about-banner > .img-cover { border-radius: inherit; }
 
