@@ -147,8 +147,7 @@ html {
 }
 
 body {
-  background-color: var(--space-cadet);
-  color: var(--cadet-blue-crayola);
+  background-image: url("../images/dark-green.jpg");
   font-size: 1.6rem;
   line-height: 1.6;
   overflow-x: hidden;
@@ -231,7 +230,7 @@ body {
   position: fixed;
   padding-block: 15px;
   width: 100%;
-  background-color: var(--space-cadet);
+  background-image: url("../images/dark-green.jpg");
   height: 65px;
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -902,20 +901,6 @@ textarea.contact-input {
   .elem-3 ion-icon {
     color: var(--minion-yellow);
     font-size: 6rem;
-  }
-
-  .rotate-img {
-    display: block;
-    position: absolute;
-    bottom: -60px;
-    left: -60px;
-    width: 120px;
-    animation: rotate360 15s linear infinite reverse;
-  }
-
-  @keyframes rotate360 {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(1turn); }
   }
 
 
