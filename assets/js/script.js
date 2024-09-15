@@ -78,9 +78,8 @@ function displayAQIData(data) {
     }
 }
 
-// Fetch and display AQI data when the page loads
-window.addEventListener('load', async () => {
+// Event listener for the "Check Air Quality" button
+document.getElementById('check-air-quality-btn').addEventListener('click', async () => {
     const aqiData = await fetchAQIData();
     displayAQIData(aqiData);
 });
-
