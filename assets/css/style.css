@@ -37,6 +37,7 @@
   --black: hsl(0, 0%, 0%);
   --white: hsl(0, 0%, 100%);
   --shamrock: hsl(145, 63%, 49%);
+  --light-wood: hsl(3, 17%, 44%);
 
   /**
    * typography
@@ -187,7 +188,7 @@ body {
 
 .btn-primary.blue { background-color: var(--klein-blue); }
 
-.btn-primary.blue:is(:hover, :focus) { background-color: var(--orange-soda); }
+.btn-primary.blue:is(:hover, :focus) { background-color: var(--light-wood); }
 
 .img-cover {
   width: 100%;
@@ -198,7 +199,7 @@ body {
 .section { padding-block: var(--section-padding); }
 
 .section-subtitle {
-  color: var(--orange-soda);
+  color: var(--light-wood);
   font-family: var(--ff-barlow);
   font-size: var(--fs-4);
   text-align: center;
@@ -287,10 +288,10 @@ body {
   transition: var(--transition-1);
 }
 
-.navbar-link:is(:hover, :focus) { color: var(--orange-soda); }
+.navbar-link:is(:hover, :focus) { color: var(--light-wood); }
 
 .navbar .btn {
-  background-color: var(--orange-soda);
+  background-color: var(--light-wood);
   margin-block-start: 15px;
 }
 
@@ -400,7 +401,7 @@ body {
 .portfolio-list > li:nth-child(even) .card-content { margin-inline-start: auto; }
 
 .portfolio-card .card-subtitle {
-  color: var(--orange-soda);
+  color: var(--light-wood);
   margin-block-end: 5px;
 }
 
@@ -418,7 +419,7 @@ body {
 }
 
 .portfolio-card .btn-link ion-icon {
-  color: var(--orange-soda);
+  color: var(--light-wood);
   font-size: 1.6rem;
 }
 
