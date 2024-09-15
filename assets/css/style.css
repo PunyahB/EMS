@@ -424,15 +424,40 @@ body {
 
 .portfolio-list > li:nth-child(even) .card-content { margin-inline-start: auto; }
 
-.portfolio-card .card-subtitle {
-  color: var(--light-wood);
-  margin-block-end: 5px;
-}
-
-.portfolio-card .card-title {
+.card-aqi{
   max-width: 20ch;
   margin-block-end: 20px;
+  color: #333aff;
 }
+
+.card-wqi{
+  max-width: 20ch;
+  margin-block-end: 20px;
+  color: #ff335f;
+}
+
+.card-wcm{
+  max-width: 20ch;
+  margin-block-end: 20px;
+  color: #e33c09;
+}
+
+.card-ecm{
+  max-width: 20ch;
+  margin-block-end: 20px;
+  color: #000805;
+}
+
+
+.card-wms{
+  max-width: 20ch;
+  margin-block-end: 20px;
+  color: #991ee6;
+}
+
+
+  
+
 
 .portfolio-card .btn-link {
   display: flex;
