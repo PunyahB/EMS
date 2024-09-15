@@ -36,6 +36,7 @@
   --rufous: hsl(2, 85%, 35%);
   --black: hsl(0, 0%, 0%);
   --white: hsl(0, 0%, 100%);
+  --shamrock: hsl(145, 63%, 49%);
 
   /**
    * typography
@@ -147,7 +148,7 @@ html {
 }
 
 body {
-  background-image: url("../images/dark-green.jpg");
+  background-color: var(--shamrock);
   font-size: 1.6rem;
   line-height: 1.6;
   overflow-x: hidden;
