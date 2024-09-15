@@ -1056,3 +1056,45 @@ textarea.contact-input {
   .footer-list { margin-inline: 0; }
 
 }
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.hero-banner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px; /* Space between image and content */
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.hero img {
+  width: 50%; /* Adjust this for the desired size */
+  object-fit: cover;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
