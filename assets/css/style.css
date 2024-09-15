@@ -302,8 +302,6 @@ body {
   #HERO
 \*-----------------------------------*/
 
-.elem,
-.rotate-img { display: none; }
 
 .hero {
   background-image: url("../images/hero-bg.jpg");
@@ -313,7 +311,8 @@ body {
   padding-block: 100px var(--section-padding);
   min-height: 100vh;
   display: grid;
-  place-items: center;
+  grid-template-columns: 1fr 1fr; /* Split the section into two equal columns */
+  align-items: center;
 }
 
 .hero-banner {
@@ -323,13 +322,18 @@ body {
   border-radius: var(--radius-10);
   margin-inline: auto;
   margin-block-end: 30px;
+  grid-column: 2; /* Place the image on the right */
+  justify-self: end; /* Align the image to the right */
 }
 
-.hero-banner img { border-radius: inherit; }
+.hero-banner img {
+  border-radius: inherit;
+}
 
 .hero-content {
   text-align: center;
   color: var(--white);
+  grid-column: 1; /* Keep the content on the left */
 }
 
 .hero-title {
@@ -346,7 +350,9 @@ body {
   margin-block-end: 8px;
 }
 
-.hero-text { margin-block-end: 25px; }
+.hero-text {
+  margin-block-end: 25px;
+}
 
 .btn-group {
   display: flex;
@@ -355,8 +361,6 @@ body {
   align-items: center;
   gap: 10px;
 }
-
-
 
 
 
@@ -1057,44 +1061,7 @@ textarea.contact-input {
 
 }
 
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 0;
-}
 
-.hero-banner {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 30px; /* Space between image and content */
-}
 
-.hero-content {
-  text-align: center;
-  max-width: 500px;
-}
-
-.hero img {
-  width: 50%; /* Adjust this for the desired size */
-  object-fit: cover;
-}
-
-.btn-group {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.btn {
-  padding: 10px 20px;
-  text-decoration: none;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
 
