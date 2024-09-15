@@ -277,16 +277,21 @@
 
       <section class="section skills" id="skills">
     <title>Air Quality Monitoring System</title>
-        <h2>Check Air Quality</h2>
-        <button id="check-air-quality-btn">Check Air Quality</button>
 
-        <!-- Div where AQI data will be displayed -->
-        <div id="aqi-data">
-            <!-- AQI data will be inserted here -->
-        </div>
-    </section>
+    <h2>Check Air Quality Based on Your Location</h2>
+    <button id="get-air-quality-btn">Check Air Quality</button>
 
-    <script src="script.js"></script>
+    <div id="air-quality-data">
+        <p>Air Quality Index (AQI): <span id="aqi">Loading...</span></p>
+        <p>PM 2.5: <span id="pm25">Loading...</span></p>
+        <p>PM 10: <span id="pm10">Loading...</span></p>
+        <p>Carbon Monoxide (CO): <span id="co">Loading...</span></p>
+        <p>Ozone (O3): <span id="o3">Loading...</span></p>
+        <p>Nitrogen Dioxide (NO2): <span id="no2">Loading...</span></p>
+    </div>
+
+      
+
 
 
 
