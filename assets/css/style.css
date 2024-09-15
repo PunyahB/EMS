@@ -386,7 +386,6 @@ body {
 }
 
 .portfolio-card {
-  background-image: url("../images/dark-green.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -577,7 +576,6 @@ textarea.contact-input {
 .blog-card { font-family: var(--ff-barlow); }
 
 .blog-card .card-banner {
-  background-image: url("../images/dark-green.jpg");
   border-radius: var(--radius-15);
   overflow: hidden;
   margin-block-end: 20px;
