@@ -38,6 +38,7 @@
   --white: hsl(0, 0%, 100%);
   --shamrock: hsl(145, 63%, 49%);
   --light-wood: hsl(3, 17%, 44%);
+  --pale-green: hsl(130, 91%, 78%);
 
   /**
    * typography
@@ -615,7 +616,7 @@ textarea.contact-input {
 \*-----------------------------------*/
 
 .footer {
-  background-color: var(--independence);
+  background-color: var(--pale-green);
   padding-block: 60px;
 }
 
