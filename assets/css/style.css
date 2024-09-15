@@ -321,24 +321,6 @@ body {
   max-width: 50%; /* Take up half the width */
 }
 
-.hero-banner {
-  width: 150px;
-  height: 172px;
-  background-image: url("../images/hero-bg.jpg");
-  border-radius: var(--radius-10);
-  margin-inline: auto;
-  margin-block-end: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-banner img {
-  border-radius: inherit;
-  width: 100%; /* Ensure the image fills the banner */
-  height: auto;
-}
-
 .hero-title {
   font-family: var(--ff-barlow);
   font-size: var(--fs-5);
@@ -376,7 +358,7 @@ body {
 .about { padding-block-start: 120px; }
 
 .about-banner {
-  background-color: var(--independence);
+  background-image: url("../images/dark-green.jpg");
   border-radius: var(--radius-10);
   margin-block-end: 30px;
 }
@@ -405,7 +387,7 @@ body {
 }
 
 .portfolio-card {
-  background-color: var(--independence);
+  background-image: url("../images/dark-green.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -596,7 +578,7 @@ textarea.contact-input {
 .blog-card { font-family: var(--ff-barlow); }
 
 .blog-card .card-banner {
-  background-color: var(--independence);
+  background-image: url("../images/dark-green.jpg");
   border-radius: var(--radius-15);
   overflow: hidden;
   margin-block-end: 20px;
