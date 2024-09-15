@@ -357,7 +357,6 @@ body {
 .about { padding-block-start: 120px; }
 
 .about-banner {
-  background-image: url("../images/dark-green.jpg");
   border-radius: var(--radius-10);
   margin-block-end: 30px;
 }
@@ -855,51 +854,6 @@ textarea.contact-input {
     margin-inline-start: auto;
   }
 
-  .elem {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: var(--white);
-    border-radius: var(--radius-10);
-    padding: 20px;
-  }
-
-  .elem-1 {
-    top: 20px;
-    left: -130px;
-  }
-
-  .elem-1 .elem-title { color: var(--vivid-sky-blue); }
-
-  .elem-2 {
-    bottom: 30px;
-    right: -80px;
-  }
-
-  .elem-2 .elem-title { color: var(--fiery-rose); }
-
-  .elem-title {
-    font-size: 4.5rem;
-    line-height: 1.1;
-  }
-
-  .elem-text {
-    max-width: 10ch;
-    color: var(--black);
-    font-weight: var(--fw-700);
-    line-height: 1.1;
-  }
-
-  .elem-3 {
-    top: -40px;
-    right: -30px;
-  }
-
-  .elem-3 ion-icon {
-    color: var(--minion-yellow);
-    font-size: 6rem;
-  }
 
 
 
