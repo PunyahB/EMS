@@ -370,22 +370,22 @@ body {
 
 .about :is(.section-title, .section-text) { margin-block-end: 30px; }
 
-        h2 {
+        .section-text h2 {
             color: #333;
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
         }
-        ul {
+        .section-text ul {
             list-style-type: none;
             padding-left: 0;
         }
-        li {
+        .section-text li {
             margin-bottom: 15px;
             padding-left: 30px;
             position: relative;
         }
 
-        li:before {
+        .section-text li:before {
             content: '>';
             position: absolute;
             left: 0;
