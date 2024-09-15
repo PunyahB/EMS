@@ -45,42 +45,66 @@ window.addEventListener("scroll", function () {
  * Air Quality Monitoring System
 */
 
-async function fetchAQIData() {
-    const apiUrl = 'http://api.airvisual.com/v2/nearest_city?key=50725d61-a07b-4a46-afd6-f032252061b6';
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching AQI data:', error);
-        return null;
-    }
-}
+const apiKey = '84b63b20bbf7476b74fff192b43b7b0d'; // Your OpenWeatherMap API key
 
-function displayAQIData(data) {
-    const aqiDataElement = document.getElementById('aqi-data');
-    if (data && data.status === 'success') {
-        const { city, state, country } = data.data;
-        const { aqius, aqicn } = data.data.current.pollution;
-        const { tp, hu } = data.data.current.weather;
-        const timestamp = new Date(data.data.current.weather.ts).toLocaleString();
+        // Function to get live location and fetch air quality dat
+function getLiveLocationAndAirQuality() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
 
-        aqiDataElement.innerHTML = `
-            <div class="aqi-data">Location: <span class="aqi-value">${city}, ${state}, ${country}</span></div>
-            <div class="aqi-data">AQI (US): <span class="aqi-value">${aqius}</span></div>
-            <div class="aqi-data">AQI (CN): <span class="aqi-value">${aqicn}</span></div>
-            <div class="aqi-data">Temperature: <span class="aqi-value">${tp}°C</span></div>
-            <div class="aqi-data">Humidity: <span class="aqi-value">${hu}%</span></div>
-            <div class="aqi-data">Last Updated: <span class="aqi-value">${timestamp}</span></div>
-        `;
-    } else {
-        aqiDataElement.innerHTML = '<p>Failed to load AQI data. Please try again later.</p>';
-    }
-}
+                    // Display user's latitude and longitude
+                    document.getElementById('latitude').textContent = latitude;
+                    document.getElementById('longitude').textContent = longitude;
+
+                    // Construct the OpenWeatherMap API URL using latitude and longitude
+                    const apiUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+                    // Fetch air quality data from OpenWeatherMap API
+                    try {
+                        const response = await fetch(apiUrl);
+                        const data = await response.json();
+                        displayAirQualityData(data);
+                    } catch (error) {
+                        console.error('Error fetching air quality data:', error);
+                    }
+                }, error => {
+                    console.error('Error getting location:', error);
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+
+        // Function to display air quality data
+function displayAirQualityData(data) {
+            const aqiElement = document.getElementById('aqi');
+            const pm25Element = document.getElementById('pm25');
+            const pm10Element = document.getElementById('pm10');
+            const coElement = document.getElementById('co');
+            const o3Element = document.getElementById('o3');
+            const no2Element = document.getElementById('no2');
+
+            if (data && data.list && data.list.length > 0) {
+                const airData = data.list[0];
+                aqiElement.textContent = airData.main.aqi;
+                pm25Element.textContent = airData.components.pm2_5;
+                pm10Element.textContent = airData.components.pm10;
+                coElement.textContent = airData.components.co;
+                o3Element.textContent = airData.components.o3;
+                no2Element.textContent = airData.components.no2;
+            } else {
+                aqiElement.textContent = 'Data not available';
+                pm25Element.textContent = 'Data not available';
+                pm10Element.textContent = 'Data not available';
+                coElement.textContent = 'Data not available';
+                o3Element.textContent = 'Data not available';
+                no2Element.textContent = 'Data not available';
+            }
+        }
+
+        // Add event listener to the button
+document.getElementById('get-air-quality-btn').addEventListener('click', getLiveLocationAndAirQuality);
 
 
-// Event listener for the "Check Air Quality" button
-document.getElementById('check-air-quality-btn').addEventListener('click', async () => {
-    const aqiData = await fetchAQIData();
-    displayAQIData(aqiData);
-});
