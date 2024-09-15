@@ -45,8 +45,6 @@ window.addEventListener("scroll", function () {
  * Air Quality Monitoring System
 */
 
-const key = '84b63b20bbf7476b74fff192b43b7b0d'; // Your OpenWeatherMap API key
-
 const app = {
   init: () => {
     document
@@ -55,74 +53,59 @@ const app = {
     document
       .getElementById('btnCurrent')
       .addEventListener('click', app.getLocation);
+    console.log('App initialized'); // Check if the app initializes properly
   },
 
-  fetchAirPollution: (ev) => {
-    // Use latitude and longitude to fetch the air pollution data
+  fetchAirPollution: () => {
+    // Fetch the air pollution data using latitude and longitude
     let lat = document.getElementById('latitude').value;
     let lon = document.getElementById('longitude').value;
-    let key = '06cc7efd0e5386068ec3c390bcfd0183';
-    
-    let url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${key}`;
-    
-    // Fetch the air pollution data
-    fetch(url)
-      .then((resp) => {
-        if (!resp.ok) throw new Error(resp.statusText);
-        return resp.json();
-      })
-      .then((data) => {
-        app.showAirPollution(data);
-      })
-      .catch(console.error);
+    let key = '84b63b20bbf7476b74fff192b43b7b0d'; // Your OpenWeather API key
+
+    console.log(`Latitude: ${lat}, Longitude: ${lon}`); // Check if lat/lon values are correct
+
+    if (lat && lon) {
+      let url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${key}`;
+      console.log(`Fetching data from: ${url}`); // Check if the URL is correct
+
+      fetch(url)
+        .then(response => {
+          console.log('API responded'); // To check if API responded
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Data fetched successfully:', data); // Print the fetched data to the console
+        })
+        .catch(error => {
+          console.error('Error fetching air pollution data:', error);
+        });
+    } else {
+      console.log('Please provide latitude and longitude.');
+    }
   },
 
-  getLocation: (ev) => {
-    let opts = {
-      enableHighAccuracy: true,
-      timeout: 10000, // 10 seconds
-      maximumAge: 300000, // 5 minutes
-    };
-    navigator.geolocation.getCurrentPosition(app.ftw, app.wtf, opts);
+  getLocation: () => {
+    console.log('Getting current location...');
+    navigator.geolocation.getCurrentPosition(app.ftw, app.wtf);
   },
 
   ftw: (position) => {
-    // Got position
-    document.getElementById('latitude').value =
-      position.coords.latitude.toFixed(2);
-    document.getElementById('longitude').value =
-      position.coords.longitude.toFixed(2);
+    console.log('Location fetched successfully:', position); // To see if the location is being fetched
+    document.getElementById('latitude').value = position.coords.latitude;
+    document.getElementById('longitude').value = position.coords.longitude;
   },
 
   wtf: (err) => {
-    // Geolocation failed
-    console.error(err);
-  },
-
-  showAirPollution: (resp) => {
-    // Display the air pollution data
-    console.log(resp);
-    
-    let pollutionData = resp.list[0]; // Get the first (and only) item from the list
-    let airQuality = pollutionData.main.aqi;
-    let co = pollutionData.components.co;
-    let no2 = pollutionData.components.no2;
-    let o3 = pollutionData.components.o3;
-    let pm25 = pollutionData.components.pm2_5;
-    let pm10 = pollutionData.components.pm10;
-
-    // Display data in HTML
-    document.getElementById('aqi').textContent = airQuality;
-    document.getElementById('pm25').textContent = pm25;
-    document.getElementById('pm10').textContent = pm10;
-    document.getElementById('co').textContent = co;
-    document.getElementById('no2').textContent = no2;
-    document.getElementById('o3').textContent = o3;
+    console.error('Geolocation error:', err);
   },
 };
 
 app.init();
 
+  
 
 
 
