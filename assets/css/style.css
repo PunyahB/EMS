@@ -479,43 +479,43 @@ body {
   #SKILLS
 \*-----------------------------------*/
 
+/* Styles for the Skills Section */
+.section.skills {
+  text-align: center; /* Center-aligns the text in the section */
+  padding: 40px 20px; /* Adds padding to the top, bottom, and sides */
+}
+
+.section-title {
+  font-size: 2rem; /* Adjust the font size of the section title */
+  margin-bottom: 20px; /* Space below the section title */
+  color: var(--white);
+}
+
+.section-text {
+  font-size: 1rem; /* Adjust the font size of the paragraph text */
+  line-height: 1.6; /* Increases the line height for readability */
+  margin-bottom: 30px; /* Space below the paragraph text */
+  color: var(--white);
+}
+
+/* Centering the widget */
+[name="airvisual_widget"] {
+  display: inline-block; /* Make the widget an inline-block element */
+  text-align: center; /* Center-aligns the content within the widget */
+  margin: 0 auto; /* Centers the widget horizontally */
+}
+
+/* Optional: Style for the widget container */
+section.skills {
+  background-color: #f0f0f0; /* Light background color for the section */
+  border-radius: 8px; /* Rounded corners for the section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+
 .skills .section-title { margin-block-end: 20px; }
 
 .skills .section-text { margin-block-end: 70px; }
-
-.skills-list {
-  display: grid;
-  gap: 25px;
-}
-
-.skills-item .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-block-end: 10px;
-}
-
-.skills-title,
-.skills-data {
-  color: var(--white);
-  font-size: var(--fs-5);
-  font-family: var(--ff-barlow);
-  font-weight: var(--fw-600);
-}
-
-.skills-progress-box {
-  background-color: var(--white);
-  height: 8px;
-  border-radius: var(--radius-10);
-}
-
-.skills-progress {
-  background-color: var(--orange-soda);
-  height: 100%;
-  border-radius: inherit;
-}
-
-
 
 
 
