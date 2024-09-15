@@ -486,13 +486,11 @@ body {
 }
 
 .section-title {
-  font-size: 2rem; /* Adjust the font size of the section title */
   margin-bottom: 20px; /* Space below the section title */
   color: var(--white);
 }
 
 .section-text {
-  font-size: 1rem; /* Adjust the font size of the paragraph text */
   line-height: 1.6; /* Increases the line height for readability */
   margin-bottom: 30px; /* Space below the paragraph text */
   color: var(--white);
