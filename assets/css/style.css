@@ -471,14 +471,14 @@ body {
 
 
 .portfolio-card .btn-link {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: var(--fs-6);
-  text-transform: uppercase;
-  color: #ff335f;
-  background-color: #ffffff; 
-  
+  color: var(--white);
+  font-family: var(--ff-barlow);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-600);
+  max-width: max-content;
+  padding: var(--padding, 10px 40px);
+  border-radius: 50px;
+  transition: var(--transition-2);  
 }
 
 .portfolio-card .btn-link ion-icon {
