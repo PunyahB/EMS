@@ -292,7 +292,7 @@
     <script type="text/javascript" src="https://widget.iqair.com/script/widget_v3.0.js"></script>
 </section>
 
-<section class="wqms" id="wms" style="background-color: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: 0 auto;">
+<section class="wqms" id="wms" style="background-color: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: 0 auto 50px;">
   <h2 style="text-align: center;">Water Quality Monitoring Calculator</h2>
 
   <form id="water-quality-form" style="display: flex; flex-direction: column; gap: 15px;">
@@ -320,22 +320,15 @@
     </button>
   </form>
 
-  <p id="result"></p>
+  <div id="result" style="margin-top: 20px; display: none;">
+    <h3>Water Quality: <span id="quality-text"></span></h3>
+    <input type="range" id="quality-slider" min="0" max="100" value="50" disabled style="width: 100%; height: 15px; border-radius: 5px; background: linear-gradient(to right, red 33%, yellow 66%, green);">
+  </div>
+
 </section>
 
-<script>
-  document.getElementById('water-quality-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    // Handle the calculations here, but don't display the score.
-    // Simply provide a result without showing the score.
-    document.getElementById('result').innerText = 'Water quality calculated based on entered values.';
-  });
-</script>
 
-
-  </section>
-
+      
      <section class="climate-system" id="climate">
   <h2 class="h2 section-title">Climate Monitoring System</h2>
   
