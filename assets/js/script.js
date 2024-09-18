@@ -88,7 +88,7 @@ document.getElementById('water-quality-form').addEventListener('submit', functio
     }
 
     // Display the result
-    document.getElementById('result').innerText = `Water Quality Score: ${score}\n${result}`;
+    document.getElementById('result').innerText = `Water Quality: ${result}`;
   });
 
 
