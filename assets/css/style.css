@@ -424,35 +424,49 @@ body {
 
 .portfolio-list > li:nth-child(even) .card-content { margin-inline-start: auto; }
 
-.card-aqi{
+.card-aqi {
   max-width: 20ch;
   margin-block-end: 20px;
   color: #000805;
+  background-color: #ffffff; 
+  padding: 10px; 
+  border-radius: 5px; 
 }
 
-.card-wqi{
+.card-wqi {
   max-width: 20ch;
   margin-block-end: 20px;
   color: #000805;
+  background-color: #ffffff; 
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.card-wcm{
+.card-wcm {
   max-width: 20ch;
   margin-block-end: 20px;
   color: #000805;
+  background-color: #ffffff; 
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.card-ecm{
+.card-ecm {
   max-width: 20ch;
   margin-block-end: 20px;
   color: #000805;
+  background-color: #ffffff; 
+  padding: 10px;
+  border-radius: 5px;
 }
 
-
-.card-wms{
+.card-wms {
   max-width: 20ch;
   margin-block-end: 20px;
   color: #000805;
+  background-color: #ffffff; 
+  padding: 10px;
+  border-radius: 5px;
 }
 
 
