@@ -80,19 +80,25 @@ document.getElementById('water-quality-form').addEventListener('submit', functio
     // Determine the result based on the score
     let result;
     let sliderValue;
+    let color;
+    
     if (score >= 10) {
       result = 'Good';
       sliderValue = 75;  // Green
+      color = 'green';
     } else if (score >= 6) {
       result = 'Moderate';
       sliderValue = 50;  // Yellow
+      color = 'yellow';
     } else {
       result = 'Poor';
       sliderValue = 25;  // Red
+      color = 'red';
     }
 
     // Display the result
     document.getElementById('quality-text').innerText = result;
+    document.getElementById('quality-text').style.color = color; // Change the text color
     document.getElementById('quality-slider').value = sliderValue;
     document.getElementById('result').style.display = 'block';
   });
