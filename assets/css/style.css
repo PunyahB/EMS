@@ -478,7 +478,13 @@ body {
   max-width: max-content;
   padding: var(--padding, 10px 40px);
   border-radius: 50px;
-  transition: var(--transition-2);  
+  transition: var(--transition-2); 
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  background-color: #ffffff; 
+  flex-wrap: wrap;
 }
 
 .portfolio-card .btn-link ion-icon {
