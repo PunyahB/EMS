@@ -79,16 +79,22 @@ document.getElementById('water-quality-form').addEventListener('submit', functio
 
     // Determine the result based on the score
     let result;
+    let sliderValue;
     if (score >= 10) {
-      result = 'Good water quality';
+      result = 'Good';
+      sliderValue = 75;  // Green
     } else if (score >= 6) {
-      result = 'Moderate water quality';
+      result = 'Moderate';
+      sliderValue = 50;  // Yellow
     } else {
-      result = 'Poor water quality';
+      result = 'Poor';
+      sliderValue = 25;  // Red
     }
 
     // Display the result
-    document.getElementById('result').innerText = `Water Quality: ${result}`;
+    document.getElementById('quality-text').innerText = result;
+    document.getElementById('quality-slider').value = sliderValue;
+    document.getElementById('result').style.display = 'block';
   });
 
 
