@@ -477,6 +477,9 @@ body {
   font-size: var(--fs-6);
   text-transform: uppercase;
   color: #ff335f;
+  background-color: #ffffff; 
+  padding: 10px;
+  border-radius: 5px;
   
 }
 
