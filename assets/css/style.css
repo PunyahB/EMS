@@ -586,7 +586,7 @@ body {
 
 .blog-card .card-title a { transition: var(--transition-2); }
 
-.blog-card .card-title a:is(:hover, :focus) { color: var(--orange-soda); }
+.blog-card .card-title a:is(:hover, :focus) { color: var(--light-wood); }
 
 
 
