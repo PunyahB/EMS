@@ -89,7 +89,7 @@ document.getElementById('water-quality-form').addEventListener('submit', functio
     } else if (score >= 6) {
       result = 'Moderate';
       sliderValue = 50;  // Yellow
-      color = 'yellow';
+      color = '#854a03';
     } else {
       result = 'Poor';
       sliderValue = 25;  // Red
