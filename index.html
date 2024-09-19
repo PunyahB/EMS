@@ -455,6 +455,38 @@ Above 1000 ppm: Poor
       </div>
 </section>
 
+      <section class="energy-monitoring" id="energy">
+  <h2 class="h2 section-title">Energy Consumption Monitoring System</h2>
+
+  <p class="section-text">
+    Enter your electrical details to monitor energy consumption and visualize it.
+  </p>
+
+  <form id="energy-form">
+    <label for="voltage">Voltage (V):</label>
+    <input type="number" id="voltage" step="0.01" required><br><br>
+
+    <label for="current">Current (A):</label>
+    <input type="number" id="current" step="0.01" required><br><br>
+
+    <label for="power-factor">Power Factor (0 - 1):</label>
+    <input type="number" id="power-factor" step="0.01" min="0" max="1" required><br><br>
+
+    <label for="time">Time (hours):</label>
+    <input type="number" id="time" step="0.01" required><br><br>
+
+    <button type="submit">Calculate Energy Consumption</button>
+  </form>
+
+  <p id="result"></p>
+
+  <!-- Canvas for Chart -->
+  <canvas id="energyChart" width="400" height="200"></canvas>
+</section>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 
 
       <!-- 
