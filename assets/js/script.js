@@ -103,6 +103,55 @@ document.getElementById('water-quality-form').addEventListener('submit', functio
     document.getElementById('result').style.display = 'block';
   });
 
+let energyData = [];
+let labels = [];
+
+// Create the chart when the page loads
+const ctx = document.getElementById('energyChart').getContext('2d');
+let energyChart = new Chart(ctx, {
+    type: 'line',  // You can change this to 'bar', 'radar', etc.
+    data: {
+        labels: labels,  // X-axis labels (Time of usage)
+        datasets: [{
+            label: 'Energy Consumption (kWh)',
+            data: energyData,  // Y-axis data (Energy values)
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1,
+            fill: false
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+document.getElementById('energy-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const voltage = parseFloat(document.getElementById('voltage').value);
+    const current = parseFloat(document.getElementById('current').value);
+    const powerFactor = parseFloat(document.getElementById('power-factor').value);
+    const time = parseFloat(document.getElementById('time').value);
+
+    // Calculate Energy Consumption in kWh
+    const energyConsumption = (voltage * current * powerFactor * time) / 1000;
+
+    // Display the result
+    document.getElementById('result').innerText = `Energy Consumption: ${energyConsumption.toFixed(2)} kWh`;
+
+    // Add data to chart
+    labels.push(`Time ${labels.length + 1}`);
+    energyData.push(energyConsumption.toFixed(2));
+
+    // Update chart
+    energyChart.update();
+});
+
 
 
 
