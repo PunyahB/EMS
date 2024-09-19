@@ -292,6 +292,40 @@
     <script type="text/javascript" src="https://widget.iqair.com/script/widget_v3.0.js"></script>
 </section>
 
+      <h1>Water Quality Management System</h1>
+
+       <p class="section-text">
+      pH Level:
+6.5 - 8.5: Good
+5.5 - 6.5 or 8.5 - 9.5: Moderate
+Below 5.5 or above 9.5: Poor
+         <br><br>
+Dissolved Oxygen (DO):
+Above 6 mg/L: Good
+4 - 6 mg/L: Moderate
+Below 4 mg/L: Poor
+         <br><br>
+Turbidity (measured in NTU - Nephelometric Turbidity Units):
+0 - 5 NTU: Good
+5 - 20 NTU: Moderate
+Above 20 NTU: Poor
+         <br><br>
+Electrical Conductivity (EC) (measured in µS/cm):
+Below 250 µS/cm: Good
+250 - 500 µS/cm: Moderate
+Above 500 µS/cm: Poor
+         <br><br>
+Temperature:
+10 - 25°C: Good
+25 - 35°C: Moderate
+Above 35°C or below 10°C: Poor
+         <br><br>
+Total Dissolved Solids (TDS):
+Below 500 ppm: Good
+500 - 1000 ppm: Moderate
+Above 1000 ppm: Poor
+         </p>
+
 <section class="wqms" id="wms" style="background-color: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: 0 auto 50px;">
   <h2 style="text-align: center;">Water Quality Monitoring Calculator</h2>
 
@@ -322,7 +356,7 @@
 
   <div id="result" style="margin-top: 20px; display: none;">
     <h3>Water Quality: <span id="quality-text" style="font-weight: bold;"></span></h3>
-    <input type="range" id="quality-slider" min="0" max="100" value="50" disabled style="width: 100%; height: 15px; border-radius: 5px; background: linear-gradient(to right, red, yellow, green);">
+    <input type="range" id="quality-slider" min="0" max="100" value="50" disabled style="width: 100%; height: 15px; border-radius: 5px; background: linear-gradient(to right, red, #FFCC00, green);">
   </div>
 
 </section>
