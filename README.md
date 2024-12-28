@@ -21,7 +21,7 @@
 
 ### Demo Screeshots
 
-![Portfolio Desktop Demo](./images/desktop.png "Desktop Demo")
+![Portfolio Desktop Demo](./assets/images/desktop.png "Desktop Demo")
 
 ### Prerequisites
 
