@@ -41,41 +41,43 @@ window.addEventListener("scroll", function () {
   }
 });
 
-document.getElementById('water-quality-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+// Select the form and result paragraph
+const phForm = document.getElementById('ph-form');
+const result = document.getElementById('result');
 
-    let score = 0;
-
-    const ph = parseFloat(document.getElementById('ph').value);
-
-  
-    if (ph >= 6.5 && ph <= 8.5) score += 2;
-    else if (ph >= 5.5 && ph < 6.5 || ph > 8.5 && ph <= 9.5) score += 1;
-
-    let result;
-    let sliderValue;
-    let color;
-    
-    if (score >= 10) {
-      result = 'Good';
-      sliderValue = 75;  // Green
-      color = 'green';
-    } else if (score >= 6) {
-      result = 'Moderate';
-      sliderValue = 50;  // Yellow
-      color = '#854a03';
+// Function to determine water quality based on pH
+function determineWaterQuality(ph) {
+    if (ph >= 6.5 && ph <= 8.5) {
+        return { quality: "Good", color: "green" };
+    } else if (ph >= 5.5 && ph < 6.5 || ph > 8.5 && ph <= 9.5) {
+        return { quality: "Moderate", color: "orange" };
     } else {
-      result = 'Poor';
-      sliderValue = 25;  // Red
-      color = 'red';
+        return { quality: "Bad", color: "red" };
+    }
+}
+
+// Handle form submission
+phForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent form from reloading the page
+
+    const phLevel = parseFloat(document.getElementById('ph-level').value);
+
+    // Validate input
+    if (isNaN(phLevel) || phLevel < 0 || phLevel > 14) {
+        result.textContent = "Please enter a valid pH level between 0 and 14.";
+        result.style.color = "black";
+        return;
     }
 
-    // Display the result
-    document.getElementById('quality-text').innerText = result;
-    document.getElementById('quality-text').style.color = color; // Change the text color
-    document.getElementById('quality-slider').value = sliderValue;
-    document.getElementById('result').style.display = 'block';
-  });
+    // Determine water quality
+    const { quality, color } = determineWaterQuality(phLevel);
+    result.textContent = `The water quality is: ${quality}`;
+    result.style.color = color;
+
+    // Reset the form
+    phForm.reset();
+});
+
 
 let energyData = [];
 let labels = [];
