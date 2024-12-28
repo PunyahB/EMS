@@ -152,6 +152,55 @@ document.getElementById('energy-form').addEventListener('submit', function(event
     energyChart.update();
 });
 
+// Select DOM elements
+const wasteForm = document.getElementById('waste-form');
+const totalWasteEl = document.getElementById('total-waste');
+const recycledWasteEl = document.getElementById('recycled-waste');
+const landfillWasteEl = document.getElementById('landfill-waste');
+const recycledBar = document.getElementById('recycled-bar');
+const landfillBar = document.getElementById('landfill-bar');
+
+// Initialize waste data
+let totalWaste = 0;
+let recycledWaste = 0;
+let landfillWaste = 0;
+
+// Update Dashboard
+function updateDashboard() {
+    // Update text values
+    totalWasteEl.textContent = totalWaste.toFixed(1);
+    recycledWasteEl.textContent = recycledWaste.toFixed(1);
+    landfillWasteEl.textContent = landfillWaste.toFixed(1);
+
+    // Update progress bars
+    const recycledPercentage = (recycledWaste / totalWaste) * 100 || 0;
+    const landfillPercentage = (landfillWaste / totalWaste) * 100 || 0;
+
+    recycledBar.style.width = `${recycledPercentage}%`;
+    landfillBar.style.width = `${landfillPercentage}%`;
+}
+
+// Handle Form Submission
+wasteForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const wasteType = document.getElementById('waste-type').value;
+    const quantity = parseFloat(document.getElementById('quantity').value);
+
+    if (wasteType === 'recyclable') {
+        recycledWaste += quantity;
+    } else {
+        landfillWaste += quantity;
+    }
+
+    totalWaste += quantity;
+    updateDashboard();
+
+    // Reset form
+    wasteForm.reset();
+});
+
+
 
 
 
