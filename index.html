@@ -331,28 +331,22 @@
        <p class="section-text">
       pH Level:
 6.5 - 8.5: Good
+         
 5.5 - 6.5 or 8.5 - 9.5: Moderate
+         
 Below 5.5 or above 9.5: Poor
          </p>
 
 <section class="wqms" id="wms" style="background-color: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: 0 auto 50px;">
-  <h2 style="text-align: center;">Water Quality Monitoring Calculator</h2>
-
-  <form id="water-quality-form" style="display: flex; flex-direction: column; gap: 15px;">
-    
-    <label for="ph">pH Level (0 - 14):</label>
-    <input type="number" id="ph" step="0.01" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-
-    <button type="submit" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-      Calculate Water Quality
-    </button>
-  </form>
-
-  <div id="result" style="margin-top: 20px; display: none;">
-    <h3>Water Quality: <span id="quality-text" style="font-weight: bold;"></span></h3>
-    <input type="range" id="quality-slider" min="0" max="100" value="50" disabled style="width: 100%; height: 15px; border-radius: 5px; background: linear-gradient(to right, red, #854a03, #02610b);">
-  </div>
-
+  <h1>Water Management System</h1>
+        <form id="ph-form">
+            <label for="ph-level">Enter pH Level (0-14):</label>
+            <input type="number" id="ph-level" min="0" max="14" step="0.1" required>
+            <br><br>
+            <button type="submit">Check Water Quality</button>
+        </form>
+        <h2>Water Quality:</h2>
+        <p id="result">Enter a pH level to determine water quality.</p>
 </section>
 
 
