@@ -884,6 +884,67 @@ body {
   }
 
 
+/* Water Management Section */
+#wqms {
+    margin: 2rem auto;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Section Title */
+#wqms h1 {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+/* Form Styles */
+#wqms form {
+    margin-bottom: 1.5rem;
+}
+
+#wqms label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+#wqms input {
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+#wqms button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#wqms button:hover {
+    background-color: #45a049;
+}
+
+/* Result Styles */
+#wqms #result {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+
 
 
   /**
