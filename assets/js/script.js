@@ -41,20 +41,6 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// Select the form and result paragraph
-const phForm = document.getElementById('ph-form');
-const result = document.getElementById('result');
-
-// Function to determine water quality based on pH
-function determineWaterQuality(ph) {
-    if (ph >= 6.5 && ph <= 8.5) {
-        return { quality: "Good", color: "green" };
-    } else if (ph >= 5.5 && ph < 6.5 || ph > 8.5 && ph <= 9.5) {
-        return { quality: "Moderate", color: "orange" };
-    } else {
-        return { quality: "Bad", color: "red" };
-    }
-}
 
 // Select the form and result paragraph
 const phForm = document.getElementById('ph-form');
