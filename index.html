@@ -329,19 +329,17 @@
 </section>
 
       <h1>Water Quality Management System</h1>
-
       
-
 <section class="wqms" id="wqms" style="background-color: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: 0 auto 50px;">
+        <h1>Water Quality Calculator</h1>
+        <p>Enter the pH level of your water to determine its quality and get actionable suggestions.</p>
         <form id="ph-form">
-            <label for="ph-level">Enter pH Level (0-14):</label>
-            <input type="number" id="ph-level" min="0" max="14" step="0.1" required>
-            <br><br>
-            <button type="submit">Check Water Quality</button>
+            <label for="ph-level">pH Level (0 - 14):</label>
+            <input type="number" id="ph-level" name="ph-level" step="0.1" min="0" max="14" required>
+            <button type="submit">Check Quality</button>
         </form>
-        <h2>Water Quality:</h2>
-        <p id="result">Enter a pH level to determine water quality.</p>
-</section>
+        <p id="result"></p>
+    </section>
 
           <section class="climate-system" id="climate">
   <h2 class="h2 section-title">Climate Monitoring System</h2>
