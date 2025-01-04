@@ -99,43 +99,11 @@ phForm.addEventListener('submit', (event) => {
     phForm.reset();
 });
 
-// Select form and result elements
-const energyForm = document.getElementById("energy-form");
-const result = document.getElementById("result");
+// Add an event listener to the form
+document.getElementById("energy-form").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent the form from reloading the page
 
-// Function to determine energy consumption level
-function determineConsumptionLevel(energy) {
-  if (energy < 10) {
-    return {
-      level: "Low",
-      message: "Good job! Your energy consumption is low. Keep up the energy-efficient habits.",
-      color: "green",
-    };
-  } else if (energy >= 10 && energy <= 30) {
-    return {
-      level: "Average",
-      message: "Your energy consumption is average. Consider optimizing usage by turning off unused appliances and using energy-efficient devices.",
-      color: "orange",
-    };
-  } else {
-    return {
-      level: "High",
-      message: "Your energy consumption is high. Steps to reduce energy consumption include:  
-        - Turning off appliances when not in use.  
-        - Using LED lights instead of traditional bulbs.  
-        - Installing energy-efficient appliances.  
-        - Reducing heating or cooling when possible.  
-        - Unplugging devices that are not in use.",
-      color: "red",
-    };
-  }
-}
-
-// Handle form submission
-energyForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent page reload
-
-  // Get input values
+  // Retrieve input values
   const voltage = parseFloat(document.getElementById("voltage").value);
   const current = parseFloat(document.getElementById("current").value);
   const powerFactor = parseFloat(document.getElementById("power-factor").value);
@@ -143,21 +111,40 @@ energyForm.addEventListener("submit", (event) => {
 
   // Validate inputs
   if (isNaN(voltage) || isNaN(current) || isNaN(powerFactor) || isNaN(time)) {
-    result.textContent = "Please enter valid numbers for all fields.";
-    result.style.color = "black";
+    alert("Please enter valid numeric values for all fields.");
     return;
   }
 
-  // Calculate energy consumption
-  const energy = (voltage * current * powerFactor * time) / 1000;
+  // Calculate energy consumption in kWh
+  const energyConsumption = (voltage * current * powerFactor * time) / 1000;
 
-  // Determine consumption level
-  const { level, message, color } = determineConsumptionLevel(energy);
-  result.innerHTML = `Your energy consumption is <strong style="color: ${color};">${level}</strong> (${energy.toFixed(2)} kWh).<br>${message}`;
-  result.style.color = color;
+  // Determine energy usage category and provide feedback
+  let resultMessage = "";
+  if (energyConsumption < 5) {
+    resultMessage = `Your energy consumption is low at ${energyConsumption.toFixed(2)} kWh. Great job! Keep up the efficient usage!`;
+  } else if (energyConsumption >= 5 && energyConsumption <= 15) {
+    resultMessage = `Your energy consumption is average at ${energyConsumption.toFixed(2)} kWh. Consider turning off unused devices or optimizing appliance usage.`;
+  } else {
+    resultMessage = `Your energy consumption is high at ${energyConsumption.toFixed(2)} kWh. Here are steps to reduce it: 
+    <ul>
+      <li>Switch to energy-efficient appliances.</li>
+      <li>Unplug devices when not in use.</li>
+      <li>Use LED lights instead of incandescent bulbs.</li>
+      <li>Schedule high-power tasks during non-peak hours.</li>
+      <li>Install solar panels to offset energy usage.</li>
+    </ul>`;
+  }
 
-  // Reset the form
-  energyForm.reset();
+  // Display the result message
+  const resultElement = document.getElementById("result");
+  resultElement.innerHTML = resultMessage;
+
+  // Apply styling to the result box
+  resultElement.style.color = "#333";
+  resultElement.style.padding = "10px";
+  resultElement.style.border = "1px solid #ddd";
+  resultElement.style.borderRadius = "5px";
+  resultElement.style.backgroundColor = "#f9f9f9";
 });
 
 
