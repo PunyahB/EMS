@@ -136,7 +136,7 @@ document.getElementById("energy-form").addEventListener("submit", function (even
   }
 
   // Display the result message
-  const resultElement = document.getElementById("result");
+  const resultElement = document.getElementById("energy-result"); // Updated id
   resultElement.innerHTML = resultMessage;
 
   // Apply styling to the result box
@@ -146,6 +146,7 @@ document.getElementById("energy-form").addEventListener("submit", function (even
   resultElement.style.borderRadius = "5px";
   resultElement.style.backgroundColor = "#f9f9f9";
 });
+
 
 
 // Select DOM elements
