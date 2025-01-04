@@ -99,56 +99,67 @@ phForm.addEventListener('submit', (event) => {
     phForm.reset();
 });
 
+// Select form and result elements
+const energyForm = document.getElementById("energy-form");
+const result = document.getElementById("result");
 
+// Function to determine energy consumption level
+function determineConsumptionLevel(energy) {
+  if (energy < 10) {
+    return {
+      level: "Low",
+      message: "Good job! Your energy consumption is low. Keep up the energy-efficient habits.",
+      color: "green",
+    };
+  } else if (energy >= 10 && energy <= 30) {
+    return {
+      level: "Average",
+      message: "Your energy consumption is average. Consider optimizing usage by turning off unused appliances and using energy-efficient devices.",
+      color: "orange",
+    };
+  } else {
+    return {
+      level: "High",
+      message: "Your energy consumption is high. Steps to reduce energy consumption include:  
+        - Turning off appliances when not in use.  
+        - Using LED lights instead of traditional bulbs.  
+        - Installing energy-efficient appliances.  
+        - Reducing heating or cooling when possible.  
+        - Unplugging devices that are not in use.",
+      color: "red",
+    };
+  }
+}
 
-let energyData = [];
-let labels = [];
+// Handle form submission
+energyForm.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent page reload
 
-// Create the chart when the page loads
-const ctx = document.getElementById('energyChart').getContext('2d');
-let energyChart = new Chart(ctx, {
-    type: 'line',  // You can change this to 'bar', 'radar', etc.
-    data: {
-        labels: labels,  // X-axis labels (Time of usage)
-        datasets: [{
-            label: 'Energy Consumption (kWh)',
-            data: energyData,  // Y-axis data (Energy values)
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-            fill: false
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+  // Get input values
+  const voltage = parseFloat(document.getElementById("voltage").value);
+  const current = parseFloat(document.getElementById("current").value);
+  const powerFactor = parseFloat(document.getElementById("power-factor").value);
+  const time = parseFloat(document.getElementById("time").value);
+
+  // Validate inputs
+  if (isNaN(voltage) || isNaN(current) || isNaN(powerFactor) || isNaN(time)) {
+    result.textContent = "Please enter valid numbers for all fields.";
+    result.style.color = "black";
+    return;
+  }
+
+  // Calculate energy consumption
+  const energy = (voltage * current * powerFactor * time) / 1000;
+
+  // Determine consumption level
+  const { level, message, color } = determineConsumptionLevel(energy);
+  result.innerHTML = `Your energy consumption is <strong style="color: ${color};">${level}</strong> (${energy.toFixed(2)} kWh).<br>${message}`;
+  result.style.color = color;
+
+  // Reset the form
+  energyForm.reset();
 });
 
-document.getElementById('energy-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const voltage = parseFloat(document.getElementById('voltage').value);
-    const current = parseFloat(document.getElementById('current').value);
-    const powerFactor = parseFloat(document.getElementById('power-factor').value);
-    const time = parseFloat(document.getElementById('time').value);
-
-    // Calculate Energy Consumption in kWh
-    const energyConsumption = (voltage * current * powerFactor * time) / 1000;
-
-    // Display the result
-    document.getElementById('result').innerText = `Energy Consumption: ${energyConsumption.toFixed(2)} kWh`;
-
-    // Add data to chart
-    labels.push(`Time ${labels.length + 1}`);
-    energyData.push(energyConsumption.toFixed(2));
-
-    // Update chart
-    energyChart.update();
-});
 
 // Select DOM elements
 const wasteForm = document.getElementById('waste-form');
