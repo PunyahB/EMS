@@ -396,10 +396,15 @@
 
 
       <section class="energy-monitoring" id="energy">
-  <h2 class="h2 section-title">Energy Consumption Monitoring System</h2>
+  <h2 class="h2 section-title">Energy Consumption Management System</h2>
 
   <p class="section-text">
-    Enter your electrical details to monitor energy consumption and visualize it.
+    Monitoring your energy consumption involves using key electrical readings:  
+    - **Voltage (V):** Use a multimeter to measure the voltage across your device's power source.  
+    - **Current (A):** A clamp meter or multimeter can help measure the current drawn by your appliances.  
+    - **Power Factor:** Check the appliance label or user manual for the power factor, or use a power meter.  
+    - **Time (hours):** Track the duration your appliances run using a stopwatch, timer, or estimation based on usage patterns.  
+    Calculating energy consumption helps you optimize your usage and reduce electricity bills while contributing to sustainability.  
   </p>
 
   <form id="energy-form">
@@ -415,16 +420,12 @@
     <label for="time">Time (hours):</label>
     <input type="number" id="time" step="0.01" required><br><br>
 
-    <button type="submit">Calculate Energy Consumption</button>
+    <button type="submit">Check Energy Consumption</button>
   </form>
 
-  <p id="result"></p>
-
-  <!-- Canvas for Chart -->
-  <canvas id="energyChart" width="400" height="200"></canvas>
+  <p id="result" style="margin-top: 20px;"></p>
 </section>
 
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
       <section class="waste-system" id="wms">
         <h1>Waste Management Dashboard</h1>
