@@ -149,53 +149,70 @@ document.getElementById("energy-form").addEventListener("submit", function (even
 
 
 
-// Select DOM elements
-const wasteForm = document.getElementById('waste-form');
-const totalWasteEl = document.getElementById('total-waste');
-const recycledWasteEl = document.getElementById('recycled-waste');
-const landfillWasteEl = document.getElementById('landfill-waste');
-const recycledBar = document.getElementById('recycled-bar');
-const landfillBar = document.getElementById('landfill-bar');
-
-// Initialize waste data
+// Initialize waste statistics
 let totalWaste = 0;
 let recycledWaste = 0;
 let landfillWaste = 0;
 
-// Update Dashboard
-function updateDashboard() {
-    // Update text values
-    totalWasteEl.textContent = totalWaste.toFixed(1);
-    recycledWasteEl.textContent = recycledWaste.toFixed(1);
-    landfillWasteEl.textContent = landfillWaste.toFixed(1);
+// Add event listener to the waste form
+document.getElementById("waste-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission from refreshing the page
 
-    // Update progress bars
-    const recycledPercentage = (recycledWaste / totalWaste) * 100 || 0;
-    const landfillPercentage = (landfillWaste / totalWaste) * 100 || 0;
+    // Get user input values
+    const wasteType = document.getElementById("waste-type").value;
+    const quantity = parseFloat(document.getElementById("quantity").value);
 
-    recycledBar.style.width = `${recycledPercentage}%`;
-    landfillBar.style.width = `${landfillPercentage}%`;
-}
-
-// Handle Form Submission
-wasteForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const wasteType = document.getElementById('waste-type').value;
-    const quantity = parseFloat(document.getElementById('quantity').value);
-
-    if (wasteType === 'recyclable') {
-        recycledWaste += quantity;
-    } else {
-        landfillWaste += quantity;
+    // Validate input
+    if (isNaN(quantity) || quantity <= 0) {
+        alert("Please enter a valid quantity.");
+        return;
     }
 
+    // Update total waste
     totalWaste += quantity;
-    updateDashboard();
+    document.getElementById("total-waste").textContent = totalWaste.toFixed(2);
 
-    // Reset form
-    wasteForm.reset();
+    // Update recyclable and landfill waste based on the waste type
+    if (wasteType === "recyclable") {
+        recycledWaste += quantity;
+        document.getElementById("recycled-waste").textContent = recycledWaste.toFixed(2);
+        document.getElementById("recycled-bar").style.width = (recycledWaste / totalWaste) * 100 + "%";
+    } else {
+        landfillWaste += quantity;
+        document.getElementById("landfill-waste").textContent = landfillWaste.toFixed(2);
+        document.getElementById("landfill-bar").style.width = (landfillWaste / totalWaste) * 100 + "%";
+    }
+
+    // Show actionable suggestions
+    displaySuggestions(wasteType, quantity);
 });
+
+// Function to display actionable suggestions
+function displaySuggestions(wasteType, quantity) {
+    const suggestionsDiv = document.getElementById("suggestions");
+    suggestionsDiv.innerHTML = ""; // Clear previous suggestions
+
+    let suggestionsHtml = `<h3>Actions for ${wasteType} Waste</h3><ul>`;
+
+    if (wasteType === "recyclable") {
+        suggestionsHtml += `
+            <li>Good job! You're recycling ${quantity} kg of waste.</li>
+            <li>Ensure you're separating paper, plastics, and glass for better recycling rates.</li>
+            <li>Take recyclables to your local recycling center or use a curbside pickup service.</li>
+            <li>Consider reusing items like glass jars or plastic containers.</li>
+        `;
+    } else {
+        suggestionsHtml += `
+            <li>Your ${quantity} kg of non-recyclable waste could be reduced.</li>
+            <li>Consider composting food waste to keep it out of landfills.</li>
+            <li>Use reusable bags, bottles, and containers to minimize plastic waste.</li>
+            <li>Opt for eco-friendly packaging to reduce landfill contributions.</li>
+        `;
+    }
+
+    suggestionsHtml += "</ul>";
+    suggestionsDiv.innerHTML = suggestionsHtml;
+}
 
 
 
